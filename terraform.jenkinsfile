@@ -25,7 +25,7 @@ pipeline {
 						if (env_create == 'true') {
 						sh '''
 						echo "Creating instance"
-						cd ${WORKSPACE}/ec2-instance/ && terraform init && terraform apply -auto-approve -lock=false
+						cd ${WORKSPACE}/terraform/ && terraform init && terraform apply -auto-approve -lock=false
 						'''
 						}
 					}
@@ -38,7 +38,7 @@ pipeline {
 						if (env_destroy == 'true') {
 						sh '''
 						echo "Destroy instance"
-						cd ${WORKSPACE}/ec2-instance/ && terraform init && terraform destroy -auto-approve -lock=false
+						cd ${WORKSPACE}/terraform/ && terraform init && terraform destroy -auto-approve -lock=false
 						'''
 						}
 					}
